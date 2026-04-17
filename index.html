@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ceres Costa Fernandes</title>
+<title>Slide Responsivo</title>
 
 <style>
 *{
@@ -18,14 +18,14 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  min-height:100vh;
 }
 
 /* 🔥 RETÂNGULO GRANDE */
 .container{
   width:90%;
   max-width:1400px;
-  height:80vh;
+  min-height:80vh; /* 👈 agora não corta mais */
   background:#fff;
   border-radius:20px;
   overflow:hidden;
@@ -37,7 +37,7 @@ body{
 .slide{
   display:none;
   width:100%;
-  height:100%;
+  min-height:80vh;
   padding:40px;
   gap:40px;
   align-items:center;
@@ -47,11 +47,12 @@ body{
   display:flex;
 }
 
-/* 🔥 IMAGEM CORRIGIDA */
+/* IMAGEM */
 .slide img{
   width:50%;
   height:100%;
-  object-fit:cover; /* mantém bonito */
+  max-height:450px;
+  object-fit:cover;
   border-radius:15px;
 }
 
@@ -87,11 +88,25 @@ button{
 .prev{ left:15px; }
 .next{ right:15px; }
 
-/* RESPONSIVO */
+/* 🔥 MOBILE CORRIGIDO */
 @media(max-width:768px){
+
+  body{
+    align-items:flex-start;
+    padding:20px 0;
+  }
+
+  .container{
+    width:95%;
+    min-height:auto;
+  }
+
   .slide{
     flex-direction:column;
     text-align:center;
+    min-height:auto;
+    padding:25px 20px 40px;
+    gap:20px;
   }
 
   .slide img,
@@ -100,14 +115,23 @@ button{
   }
 
   .slide img{
-    height:250px;
+    height:220px;
+    object-fit:cover;
   }
 
   .texto h2{
     font-size:28px;
+    margin-bottom:12px;
   }
 
   .texto p{
+    font-size:18px;
+    line-height:1.7;
+  }
+
+  button{
+    top:180px;
+    transform:none;
     font-size:18px;
   }
 }
@@ -119,48 +143,42 @@ button{
 <div class="container">
 
   <div class="slide active">
-    <img src="https://academiamaranhense.org.br/wp-content/uploads/2022/08/62b0b49918f4a78d299cd43f_f_ceres.png">
+    <img src="https://picsum.photos/id/1015/800/500">
     <div class="texto">
-      <h2>Ceres Costa Fernande</h2>
-      <p>Ceres Costa Fernandes, é uma ensaísta, cronista, contista e professora universitária brasileira, especialista em literatura portuguesa.</p>
+      <h2>Natureza</h2>
+      <p>Uma bela paisagem natural com cores vibrantes e iluminação impressionante.</p>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://www.ufma.br/portalUFMA/foto/destaque_KVkIBhgVnEkvX0m.jpg">
+    <img src="https://picsum.photos/id/1016/800/500">
     <div class="texto">
-      <h2>Biografia</h2>
-      <p>Filha de Francisco Costa Fernandes Sobrinho e de Maria Isabel Soares Costa Fernandes, nasceu na cidade de Salvador em 28 de dezembro de 1942. em 1944, mudou-se para o Maranhão com a família. É irmã do também escritor Ronaldo Costa Fernandes, e neta do desembargador Henrique Costa Fernandes, ambos membros da Academia Maranhense de Letras.</p>
+      <h2>Montanhas</h2>
+      <p>As montanhas representam força e beleza da natureza em sua forma mais pura.</p>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-10-at-12.40.12-1024x683.jpeg">
+    <img src="https://picsum.photos/id/1025/800/500">
     <div class="texto">
-      <h2>Biografia</h2>
-      <p>É Licenciada em Letras – Inglês e Português pela Universidade Federal do Maranhão – UFMA (1974) e Mestra em Letras pela Pontifícia Universidade Católica – PUC –RJ (1987), além de especialista em semiologia. No âmbito profissional foi professora da TV Educativa do Maranhão (1973-82) e é professora aposentada do Curso de Letras da Universidade Federal do Maranhão (1975-1996), tendo recebido o título de Professora Emérita em 2020. De 1998 a 2008 trabalhou em cargos técnicos voltados a Educação no Governo do Maranhão. De 2009 a 2014 foi Diretora do Centro de Criatividade Odylo Costa Filho e integrante do Conselho Estadual de Cultura.</p>
+      <h2>Vida Selvagem</h2>
+      <p>A diversidade da fauna mostra o equilíbrio e a riqueza do meio ambiente.</p>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://sacadaliteraria.com.br/storage/2023/11/ceres.jpeg">
+    <img src="https://picsum.photos/id/1035/800/500">
     <div class="texto">
-      <h2>Biografia</h2>
-      <p>Em 21 de dezembro de 2001 foi eleita para a Cadeira 39 da Academia Maranhense de Letras, na sucessão de Pires de Saboia. Foi empossada em 24 de maio de 2002 e recepcionada por Joaquim Salles de Oliveira Itapary Filho. É também integrante da Academia Ludovicense de Letras e da Academia Sambentuense de Artes e Letras.</p>
+      <h2>Floresta</h2>
+      <p>Ambientes naturais são essenciais para a preservação da vida no planeta.</p>
     </div>
   </div>
 
   <div class="slide">
-    <img src="https://www.blogsoestado.com/danielmatos/wp-content/uploads/sites/2/2025/10/1003924921-819x1024.jpg">
+    <img src="https://picsum.photos/id/1043/800/500">
     <div class="texto">
-      <h2>Obras</h2>
-      <p>1990 - O narrador plural na obra de José Saramago <br>
-         2000 - Apontamentos de literatura medieval – literatura e religião <br>
-         2000 - O último pecado capital & outras histórias <br>
-         2008 - Surrealismo & loucura e outros ensaios <br>
-         2015 - Café Literário - Memória <br>
-         2025 - Contos de Desamor <br>
-         2025 - De Peixes & solidão</p>
+      <h2>Paisagem</h2>
+      <p>Cenários naturais proporcionam tranquilidade e conexão com a natureza.</p>
     </div>
   </div>
 
