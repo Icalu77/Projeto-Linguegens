@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide Profissional</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial;
+}
+
+body{
+  background:#e5e5e5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* 🔥 RETÂNGULO GRANDE */
+.container{
+  width:90%;
+  max-width:1400px;
+  height:80vh;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  position:relative;
+}
+
+/* SLIDE */
+.slide{
+  display:none;
+  width:100%;
+  height:100%;
+  padding:40px;
+  gap:40px;
+  align-items:center;
+}
+
+.slide.active{
+  display:flex;
+}
+
+/* 🔥 IMAGEM CORRIGIDA */
+.slide img{
+  width:50%;
+  height:100%;
+  object-fit:cover; /* mantém bonito */
+  border-radius:15px;
+}
+
+/* TEXTO */
+.texto{
+  width:50%;
+}
+
+.texto h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.texto p{
+  font-size:22px;
+  line-height:1.6;
+}
+
+/* BOTÕES */
+button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:black;
+  color:white;
+  border:none;
+  padding:12px 16px;
+  font-size:20px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+.prev{ left:15px; }
+.next{ right:15px; }
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  .slide{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .slide img,
+  .texto{
+    width:100%;
+  }
+
+  .slide img{
+    height:250px;
+  }
+
+  .texto h2{
+    font-size:28px;
+  }
+
+  .texto p{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="slide active">
+    <img src="https://academiamaranhense.org.br/wp-content/uploads/2022/08/62b0b49918f4a78d299cd43f_f_ceres.png">
+    <div class="texto">
+      <h2>Ceres Costa Fernande</h2>
+      <p>Ceres Costa Fernandes, é uma ensaísta, cronista, contista e professora universitária brasileira, especialista em literatura portuguesa.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://www.ufma.br/portalUFMA/foto/destaque_KVkIBhgVnEkvX0m.jpg">
+    <div class="texto">
+      <h2>Biografia</h2>
+      <p>Filha de Francisco Costa Fernandes Sobrinho e de Maria Isabel Soares Costa Fernandes, nasceu na cidade de Salvador em 28 de dezembro de 1942. em 1944, mudou-se para o Maranhão com a família. É irmã do também escritor Ronaldo Costa Fernandes, e neta do desembargador Henrique Costa Fernandes, ambos membros da Academia Maranhense de Letras.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://www.al.ma.leg.br/sitealema/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-10-at-12.40.12-1024x683.jpeg">
+    <div class="texto">
+      <h2>Biografia</h2>
+      <p>É Licenciada em Letras – Inglês e Português pela Universidade Federal do Maranhão – UFMA (1974) e Mestra em Letras pela Pontifícia Universidade Católica – PUC –RJ (1987), além de especialista em semiologia. No âmbito profissional foi professora da TV Educativa do Maranhão (1973-82) e é professora aposentada do Curso de Letras da Universidade Federal do Maranhão (1975-1996), tendo recebido o título de Professora Emérita em 2020. De 1998 a 2008 trabalhou em cargos técnicos voltados a Educação no Governo do Maranhão. De 2009 a 2014 foi Diretora do Centro de Criatividade Odylo Costa Filho e integrante do Conselho Estadual de Cultura.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://sacadaliteraria.com.br/storage/2023/11/ceres.jpeg">
+    <div class="texto">
+      <h2>Biografia</h2>
+      <p>Em 21 de dezembro de 2001 foi eleita para a Cadeira 39 da Academia Maranhense de Letras, na sucessão de Pires de Saboia. Foi empossada em 24 de maio de 2002 e recepcionada por Joaquim Salles de Oliveira Itapary Filho. É também integrante da Academia Ludovicense de Letras e da Academia Sambentuense de Artes e Letras.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://www.blogsoestado.com/danielmatos/wp-content/uploads/sites/2/2025/10/1003924921-819x1024.jpg">
+    <div class="texto">
+      <h2>Obras</h2>
+      <p>1990 - O narrador plural na obra de José Saramago <br>
+         2000 - Apontamentos de literatura medieval – literatura e religião <br>
+         2000 - O último pecado capital & outras histórias <br>
+         2008 - Surrealismo & loucura e outros ensaios <br>
+         2015 - Café Literário - Memória <br>
+         2025 - Contos de Desamor <br>
+         2025 - De Peixes & solidão</p>
+    </div>
+  </div>
+
+  <button class="prev" onclick="voltar()">❮</button>
+  <button class="next" onclick="avancar()">❯</button>
+
+</div>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+
+function mostrarSlide(i){
+  slides.forEach(s => s.classList.remove("active"));
+  slides[i].classList.add("active");
+}
+
+function avancar(){
+  index = (index + 1) % slides.length;
+  mostrarSlide(index);
+}
+
+function voltar(){
+  index = (index - 1 + slides.length) % slides.length;
+  mostrarSlide(index);
+}
+
+/* 🔥 AUTOMÁTICO */
+setInterval(avancar, 5000);
+</script>
+
+</body>
+</html>
